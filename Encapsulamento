@@ -1,0 +1,38 @@
+Encapsulamento 
+package com.meuprojeto.modelo;
+
+public class ExemploModificadores {
+    public String publicVar = "Variável pública";
+    private String privateVar = "Variável privada";
+    protected String protectedVar = "Variável protegida";
+    String defaultVar = "Variável padrão (package-private)";
+
+    public void publicMethod() {
+        System.out.println("Método público");
+    }
+
+    private void privateMethod() {
+        System.out.println("Método privado");
+    }
+
+    protected void protectedMethod() {
+        System.out.println("Método protegido");
+    }
+
+    void defaultMethod() {
+        System.out.println("Método padrão");
+    }
+
+    public static void main(String[] args) {
+        ExemploModificadores obj = new ExemploModificadores();
+        System.out.println(obj.publicVar);
+        System.out.println(obj.privateVar); // Acessível dentro da própria classe
+        System.out.println(obj.protectedVar);
+        System.out.println(obj.defaultVar);
+
+        obj.publicMethod();
+        obj.privateMethod(); // Acessível dentro da própria classe
+        obj.protectedMethod();
+        obj.defaultMethod();
+    }
+}
