@@ -58,7 +58,7 @@ class Piramide extends SolidoGeometrico {
     }
 }
 
-public class Main {
+public class SolidoGeometria {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int opcao;
@@ -67,9 +67,13 @@ public class Main {
             System.out.println("\n1 - Esfera");
             System.out.println("2 - Cubo");
             System.out.println("3 - Cilindro");
-            System.out.println("4 - Pirâmide");
+            System.out.println("4 - Piramide");
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
+            while (!sc.hasNextInt()) { // valida entrada
+                System.out.print("Digite um número válido: ");
+                sc.next();
+            }
             opcao = sc.nextInt();
 
             SolidoGeometrico solido = null;
@@ -86,28 +90,28 @@ public class Main {
                     solido = new Cubo(a);
                     break;
                 case 3:
-                    System.out.print("Raio da base: ");
-                    r = sc.nextDouble();
+                    System.out.print("Raio: ");
+                    double rc = sc.nextDouble();
                     System.out.print("Altura: ");
-                    double h = sc.nextDouble();
-                    solido = new Cilindro(r, h);
+                    double hc = sc.nextDouble();
+                    solido = new Cilindro(rc, hc);
                     break;
                 case 4:
                     System.out.print("Aresta da base: ");
-                    a = sc.nextDouble();
+                    double ab = sc.nextDouble();
                     System.out.print("Altura: ");
-                    h = sc.nextDouble();
-                    solido = new Piramide(a, h);
+                    double hp = sc.nextDouble();
+                    solido = new Piramide(ab, hp);
                     break;
                 case 0:
-                    System.out.println("Encerrando...");
+                    System.out.println("Saindo...");
                     break;
                 default:
-                    System.out.println("Opção inválida!");
+                    System.out.println("Opção inválida.");
             }
 
             if (solido != null) {
-                System.out.printf("Volume: %.2f m³\n", solido.volume());
+                System.out.printf("Volume: %.2f%n", solido.volume());
             }
 
         } while (opcao != 0);
